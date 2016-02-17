@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="box" v-for="(index, m) in monthText"
+    :class="{active: date.month() === index}"
     @click="select(index)"
     >{{m}}</div>
   </div>
@@ -25,13 +26,15 @@ export default {
       type: Array,
       default: () => ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
     },
-    date: true
+    date: true,
+    display: true
   },
   data: () => ({
   }),
   methods: {
     select(month) {
-      console.log(month)
+      this.$dispatch('month', month)
+      this.display('days')
     }
   }
 }

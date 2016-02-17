@@ -1,13 +1,25 @@
 <template>
   <div>
+    <div class="bar">
+      <span class="prev-item" @click="next(-1)">&lt;</span>
+      <span @click="display('years')">{{displayDate.format('YYYY')}}</span>
+      <span @click="display('months')">{{displayDate.format('MM')}}</span>
+      <span class="next-item" @click="next(1)">&gt;</span>
+    </div>
     <div class="box" v-for="val in weekText">{{val}}</div>
     <div class="box clickable"
+    :class="{active: date.date() === day}"
     v-for="day in days" track-by="$index"
     @click="select(day)">{{day}}</div>
   </div>
 </template>
 
 <style lang="less" scoped>
+.bar {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 2em;
+}
 .box {
   flex-basis: 1/7 * 100%;
   margin: 5px 0;
@@ -20,33 +32,43 @@
 </style>
 
 <script>
+import moment from 'moment'
 import {arr} from './utils'
+
 export default {
   props: {
-    weekText: {
-      type: Array,
-      default: () => ['日','一','二','三','四','五','六'],
+    weekText: true,
+    date: {
       validator(val) {
-        return val.length === 7
-      }
+        return moment.isMoment(val)
+      },
+      required: true
     },
-    date: true
+    display: {
+      type: Function,
+      required: true
+    }
   },
-  data: () => ({
-    days: []
-  }),
-  ready() {
-    this.days = this.getDays(this.date)
+  data() {
+    return {
+      displayDate: this.date.clone()
+    }
   },
-  methods: {
-    getDays(date) {
+  computed: {
+    days() {
+      let date = this.displayDate
       let lastDay = date.clone().endOf('month').date()
       let days = arr(lastDay).map((v,i) => i+1)
       let paddingLeft = arr(date.clone().startOf('month').day()).map(v => '')
       return [].concat(paddingLeft, days)
-    },
+    }
+  },
+  methods: {
     select(day) {
-      console.log(day)
+      this.$dispatch('day', day)
+    },
+    next(step) {
+      this.displayDate = this.displayDate.clone().add(step, 'month')
     }
   }
 }

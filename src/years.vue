@@ -1,6 +1,8 @@
 <template>
   <div class="panel-vertical">
-    <div class="box" v-for="y in years" @click="select(y)">{{y}}</div>
+    <div class="box" v-for="y in years"
+    :class="{active: date.year() === y}"
+    @click="select(y)">{{y}}</div>
   </div>
 </template>
 
@@ -20,19 +22,19 @@
 <script>
 import {arr} from './utils'
 export default {
-  props: {
-    date: true
-  },
+  props: ['date', 'display'],
   data() {
-    let begin = this.date.year() - 50
-    let years = arr(100).map((_, i) => begin + i)
+    let size = 200
+    let begin = this.date.year() - size / 2
+    let years = arr(size).map((_, i) => begin + i)
     return {
       years
     }
   },
   methods: {
     select(year) {
-      console.log(year)
+      this.$dispatch('year', year)
+      this.display('months')
     }
   }
 }
