@@ -1,7 +1,6 @@
 <template>
-  <div class="panel-vertical">
-    <div class="box" v-for="y in years"
-    :class="{active: date.year() === y}"
+  <div :class="classNames.panel + '-vertical'">
+    <div :class="[classNames.year, classNames.box]" v-for="y in years"
     @click="select(y)">{{y}}</div>
   </div>
 </template>
@@ -12,9 +11,12 @@
   flex-wrap: nowrap;
   max-height: 300px;
   overflow-y: auto;
+}
+.box {
+  text-align: center;
 
-  .box {
-    text-align: center;
+  &.year {
+    margin: 5px 0;
   }
 }
 </style>
@@ -22,7 +24,7 @@
 <script>
 import {arr} from './utils'
 export default {
-  props: ['date', 'display'],
+  props: ['date', 'display', 'classNames'],
   data() {
     let size = 200
     let begin = this.date.year() - size / 2
