@@ -1,0 +1,1 @@
+export let arr = size => Array.apply(null, new Array(size))

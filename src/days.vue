@@ -20,7 +20,7 @@
 </style>
 
 <script>
-let arr = size => Array.apply(null, new Array(size))
+import {arr} from './utils'
 export default {
   props: {
     weekText: {
@@ -32,11 +32,9 @@ export default {
     },
     date: true
   },
-  data() {
-    return {
-      days: []
-    }
-  },
+  data: () => ({
+    days: []
+  }),
   ready() {
     this.days = this.getDays(this.date)
   },
