@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/vue-calender.js",
-  "dependencies": {
-    "moment": "^2.11.2",
+  "peerDependencies": {
     "vue": "^1.0.12"
+  },
+  "dependencies": {
+    "moment": "^2.11.2"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
