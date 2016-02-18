@@ -1,4 +1,4 @@
-# vue-calender
+# vue-calendar
 
 > A style-uninstallable datepicker component for Vue.js
 
