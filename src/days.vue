@@ -34,7 +34,6 @@
 </style>
 
 <script>
-import moment from 'moment'
 import {arr} from './utils'
 
 export default {

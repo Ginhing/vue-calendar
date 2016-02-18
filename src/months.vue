@@ -20,8 +20,6 @@
 <script>
 export default {
   props: ['monthText', 'date', 'display', 'classNames'],
-  data: () => ({
-  }),
   methods: {
     select(month) {
       this.$dispatch('month', month)

@@ -3,6 +3,8 @@
     <input :class="classNames.input" type="text"
     v-model="date" @keydown.stop.prevent @click="show">
     <component :class="classNames.panel" :is="currentView"
+    transition="fade"
+    transition-mode="out-in"
     :date="now"
     :display="display"
     :week-text="weekText"
@@ -19,6 +21,12 @@
 .panel {
  display: flex;
  flex-wrap: wrap;
+}
+.fade-transition {
+  transition: opacity .15s ease;
+}
+.fade-enter, .fade-leave {
+  opacity: 0;
 }
 </style>
 
@@ -64,8 +72,15 @@ export default {
   data() {
     return {
       currentView: null,
-      now: moment(this.date, this.format)
+      now: moment(this.date, this.format),
+      blur: e => !this.$el.contains(e.target) && this.hide()
     }
+  },
+  ready() {
+    window.addEventListener('click', this.blur)
+  },
+  beforeDestroy() {
+    window.removeEventLister('click', this.blur)
   },
   events: {
     year(val) {
@@ -85,6 +100,9 @@ export default {
     },
     display(viewName) {
       this.currentView = viewName
+    },
+    hide() {
+      this.currentView = null
     }
   },
   components: {
