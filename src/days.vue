@@ -38,7 +38,7 @@ export default {
   props: ['weekText', 'date', 'display', 'classNames', 'active'],
   computed: {
     days() {
-      let lastDay = this.date.clone().endOf('month').date()
+      let lastDay = this.date.daysInMonth()
       let days = arr(lastDay).map((v,i) => i+1)
       let paddingLeft = arr(this.date.clone().startOf('month').day()).map(v => '')
       return [].concat(paddingLeft, days)
@@ -52,7 +52,7 @@ export default {
       this.$dispatch('day', day)
     },
     next(step) {
-      this.date = this.date.clone().add(step, 'month')
+      this.$dispatch('month', this.date.month() + step)
     }
   }
 }
