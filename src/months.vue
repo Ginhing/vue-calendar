@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div :class="[classNames.month, classNames.box]" v-for="(index, m) in monthText"
+    <div v-for="(index, m) in monthText"
+    :class="[classNames.month, classNames.box, active('month', m)]"
     @click="select(index)"
     >{{m}}</div>
   </div>
@@ -19,7 +20,7 @@
 
 <script>
 export default {
-  props: ['monthText', 'date', 'display', 'classNames'],
+  props: ['monthText', 'date', 'display', 'classNames', 'active'],
   methods: {
     select(month) {
       this.$dispatch('month', month)

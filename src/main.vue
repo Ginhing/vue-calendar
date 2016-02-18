@@ -3,10 +3,12 @@
     <input :class="classNames.input" type="text"
     v-model="date" @keydown.stop.prevent @click="show">
     <component :class="classNames.panel" :is="currentView"
+    keep-alive
     transition="fade"
     transition-mode="out-in"
     :date="now"
     :display="display"
+    :active="active"
     :week-text="weekText"
     :month-text="monthText"
     :class-names="classNames"
@@ -70,9 +72,11 @@ export default {
     }
   },
   data() {
+    let now = moment(this.date, this.format)
     return {
+      now,
       currentView: null,
-      now: moment(this.date, this.format),
+      dateCache: now.clone(),
       blur: e => !this.$el.contains(e.target) && this.hide()
     }
   },
@@ -91,7 +95,7 @@ export default {
     },
     day(val) {
       this.now = this.now.clone().date(val)
-      this.date = this.now.format(this.format)
+      this.date = this.dump()
     }
   },
   methods: {
@@ -103,6 +107,20 @@ export default {
     },
     hide() {
       this.currentView = null
+    },
+    active(key, val) {
+      let {years: Y, months: M, date: D} = this.dateCache.toObject()
+      let {years, months} = this.now.toObject()
+      let test = {
+        year: val === Y,
+        month: years === Y && val === M,
+        day: years === Y && months === M && val === D,
+      }
+      return test[key] ? 'active' : ''
+    },
+    dump() {
+      this.dateCache = this.now.clone()
+      return this.dateCache.format(this.format)
     }
   },
   components: {

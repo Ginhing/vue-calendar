@@ -6,10 +6,11 @@
       <span @click="display('months')">{{date.format('MM')}}</span>
       <span @click="next(1)">&gt;</span>
     </div>
-    <div :class="[classNames.day, classNames.box]"
-    v-for="val in weekText" unhover>{{val}}</div>
-    <div :class="[classNames.day, classNames.box]"
-    v-for="day in days" track-by="$index"
+    <div v-for="val in weekText" unhover
+    :class="[classNames.day, classNames.box]"
+    >{{val}}</div>
+    <div v-for="day in days" track-by="$index"
+    :class="[classNames.day, classNames.box, active('day', day)]"
     @click="select(day)">{{day}}</div>
   </div>
 </template>
@@ -37,7 +38,7 @@
 import {arr} from './utils'
 
 export default {
-  props: ['weekText', 'date', 'display', 'classNames'],
+  props: ['weekText', 'date', 'display', 'classNames', 'active'],
   computed: {
     days() {
       let lastDay = this.date.clone().endOf('month').date()

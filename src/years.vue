@@ -1,7 +1,9 @@
 <template>
   <div :class="classNames.panel + '-vertical'">
-    <div :class="[classNames.year, classNames.box]" v-for="y in years"
-    @click="select(y)">{{y}}</div>
+    <div v-for="y in years"
+    :class="[classNames.year, classNames.box, active('year', y)]"
+    @click="select(y)"
+    >{{y}}</div>
   </div>
 </template>
 
@@ -24,7 +26,7 @@
 <script>
 import {arr} from './utils'
 export default {
-  props: ['date', 'display', 'classNames'],
+  props: ['date', 'display', 'classNames', 'active'],
   data() {
     let size = 200
     let begin = this.date.year() - size / 2
