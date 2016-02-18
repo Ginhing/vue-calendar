@@ -2,6 +2,8 @@
 
 > A style-uninstallable datepicker component for Vue.js
 
+![Demo Image](pic.png)
+
 ## Requirement
 
 - "vue": "^1.0.12"
