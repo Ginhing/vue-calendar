@@ -1,8 +1,12 @@
 {
   "name": "vue-calender",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A style-uninstallable datepicker component for Vue.js",
   "main": "dist/vue-calender.js",
+  "files": [
+    "src/",
+    "dist"
+  ],
   "peerDependencies": {
     "vue": "^1.0.12",
     "moment": "^2.11.2"
