@@ -2,8 +2,8 @@
   <div>
     <div :class="classNames.bar">
       <span @click="next(-1)">&lt;</span>
-      <span @click="display('years')">{{displayDate.format('YYYY')}}</span>
-      <span @click="display('months')">{{displayDate.format('MM')}}</span>
+      <span @click="display('years')">{{date.format('YYYY')}}</span>
+      <span @click="display('months')">{{date.format('MM')}}</span>
       <span @click="next(1)">&gt;</span>
     </div>
     <div :class="[classNames.day, classNames.box]"
@@ -39,17 +39,11 @@ import {arr} from './utils'
 
 export default {
   props: ['weekText', 'date', 'display', 'classNames'],
-  data() {
-    return {
-      displayDate: this.date.clone()
-    }
-  },
   computed: {
     days() {
-      let date = this.displayDate
-      let lastDay = date.clone().endOf('month').date()
+      let lastDay = this.date.clone().endOf('month').date()
       let days = arr(lastDay).map((v,i) => i+1)
-      let paddingLeft = arr(date.clone().startOf('month').day()).map(v => '')
+      let paddingLeft = arr(this.date.clone().startOf('month').day()).map(v => '')
       return [].concat(paddingLeft, days)
     }
   },
@@ -61,7 +55,7 @@ export default {
       this.$dispatch('day', day)
     },
     next(step) {
-      this.displayDate = this.displayDate.clone().add(step, 'month')
+      this.date = this.date.clone().add(step, 'month')
     }
   }
 }
