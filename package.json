@@ -1,8 +1,11 @@
 {
   "name": "vue-calendar",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A style-uninstallable datepicker component for Vue.js",
-  "homepage": "https://github.com/Ginhing/vue-calendar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ginhing/vue-calendar.git"
+  },
   "main": "dist/vue-calendar.js",
   "files": [
     "src/",
@@ -39,7 +42,8 @@
   },
   "keywords": [
     "calendar",
-    "date-picker"
+    "datepicker",
+    "vue"
   ],
   "author": "Ginhing",
   "license": "MIT"
