@@ -6,5 +6,6 @@ module.exports = Object.assign({}, base, {
         path: './dist',
         publicPath: '/dist',
         filename: 'index.js'
-    }
+    },
+    externals: []
 })

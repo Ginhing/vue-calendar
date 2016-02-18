@@ -4,9 +4,7 @@
   "description": "",
   "main": "dist/vue-calender.js",
   "peerDependencies": {
-    "vue": "^1.0.12"
-  },
-  "dependencies": {
+    "vue": "^1.0.12",
     "moment": "^2.11.2"
   },
   "devDependencies": {
@@ -19,8 +17,10 @@
     "css-loader": "^0.23.1",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
+    "moment": "^2.11.2",
     "style-loader": "^0.13.0",
     "template-html-loader": "0.0.3",
+    "vue": "^1.0.16",
     "vue-hot-reload-api": "^1.2.2",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^7.3.0",
