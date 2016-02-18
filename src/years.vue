@@ -15,11 +15,10 @@
   overflow-y: auto;
 }
 .box {
-  @import 'common.less';
-
-  &.year {
-    margin: 5px 0;
-  }
+  @import 'box.less';
+}
+.year {
+  margin: 5px 0;
 }
 </style>
 

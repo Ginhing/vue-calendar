@@ -9,12 +9,11 @@
 
 <style lang="less" scoped>
 .box {
-  @import 'common.less';
-
-  &.month {
-    flex-basis: 1/4 * 100%;
-    margin: 5px 0;
-  }
+  @import 'box.less';
+}
+.month {
+  flex-basis: 1/4 * 100%;
+  margin: 10px 0;
 }
 </style>
 

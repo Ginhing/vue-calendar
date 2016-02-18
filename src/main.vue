@@ -18,11 +18,13 @@
 
 <style lang="less" scoped>
 .calendar {
-  width: 400px;
+  display: inline-block;
+  width: 200px;
 }
 .panel {
  display: flex;
  flex-wrap: wrap;
+ text-align: center;
 }
 .fade-transition {
   transition: opacity .15s ease;
@@ -51,16 +53,19 @@ export default {
     },
     classNames: {
       type: Object,
-      default: () => ({
-        root: 'calendar',
-        input: 'calendar-input',
-        panel: 'panel',
-        box: 'box',
-        bar: 'bar',
-        day: 'day',
-        month: 'month',
-        year: 'year'
-      })
+      coerce(val) {
+        let preset = {
+          root: 'calendar',
+          input: 'calendar-input',
+          panel: 'panel',
+          box: 'box',
+          bar: 'bar',
+          day: 'day',
+          month: 'month',
+          year: 'year'
+        }
+        return {...preset, ...val}
+      }
     },
     weekText: {
       type: Array,

@@ -22,12 +22,11 @@
   text-align: center;
 }
 .box {
-  @import 'common.less';
+  @import 'box.less';
+}
+.day {
   flex-basis: 1/7 * 100%;
-
-  &.day {
-    margin: 5px 0;
-  }
+  margin: 5px 0;
 }
 </style>
 
