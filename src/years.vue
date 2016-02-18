@@ -35,6 +35,13 @@ export default {
       years
     }
   },
+  attached() {
+    let activeEle = this.$el.getElementsByClassName('active')[0]
+    if (activeEle) {
+      let offset = activeEle.offsetTop - this.$el.clientHeight / 2
+      this.$el.scrollTop = offset
+    }
+  },
   methods: {
     select(year) {
       this.$dispatch('year', year)
