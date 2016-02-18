@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(index, m) in monthText"
-    :class="[classNames.month, classNames.box, active('month', m)]"
+    :class="[classNames.month, classNames.box, active('month', index)]"
     @click="select(index)"
     >{{m}}</div>
   </div>
@@ -9,7 +9,7 @@
 
 <style lang="less" scoped>
 .box {
-  text-align: center;
+  @import 'common.less';
 
   &.month {
     flex-basis: 1/4 * 100%;

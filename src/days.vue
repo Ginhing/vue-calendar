@@ -11,6 +11,7 @@
     >{{val}}</div>
     <div v-for="day in days" track-by="$index"
     :class="[classNames.day, classNames.box, active('day', day)]"
+    :unhover="!day"
     @click="select(day)">{{day}}</div>
   </div>
 </template>
@@ -21,15 +22,11 @@
   text-align: center;
 }
 .box {
-  text-align: center;
+  @import 'common.less';
   flex-basis: 1/7 * 100%;
 
   &.day {
     margin: 5px 0;
-
-    &:hover:not([unhover]) {
-      background-color: red;
-    }
   }
 }
 </style>

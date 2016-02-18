@@ -15,7 +15,7 @@
   overflow-y: auto;
 }
 .box {
-  text-align: center;
+  @import 'common.less';
 
   &.year {
     margin: 5px 0;
