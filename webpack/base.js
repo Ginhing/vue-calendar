@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/main.vue',
     output: {
         path: './dist',
-        filename: 'vue-calender.js',
+        filename: 'vue-calendar.js',
         libraryTarget: 'commonjs'
     },
     externals: dependencies,

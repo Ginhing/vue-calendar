@@ -1271,4 +1271,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=vue-calender.js.map
+//# sourceMappingURL=vue-calendar.js.map
