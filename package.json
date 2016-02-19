@@ -12,7 +12,9 @@
     "dist"
   ],
   "peerDependencies": {
-    "vue": "^1.0.12",
+    "vue": "^1.0.12"
+  },
+  "dependencies": {
     "moment": "^2.11.2"
   },
   "devDependencies": {

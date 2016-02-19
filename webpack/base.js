@@ -1,7 +1,4 @@
 var webpack = require("webpack")
-var pkg = require('../package.json')
-var dependencies = Object.keys(pkg.peerDependencies)
-                         .map(k => ( {[k]: `commonjs ${k}`} ))
 
 module.exports = {
     plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
@@ -11,7 +8,9 @@ module.exports = {
         filename: 'vue-calendar.js',
         libraryTarget: 'commonjs'
     },
-    externals: dependencies,
+    externals: {
+        moment: 'commonjs moment'
+    },
     module: {
         loaders: [{
             test: /\.vue$/,
