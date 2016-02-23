@@ -89,7 +89,7 @@ export default {
     window.addEventListener('click', this.blur)
   },
   beforeDestroy() {
-    window.removeEventLister('click', this.blur)
+    window.removeEventListener('click', this.blur)
   },
   events: {
     year(val) {

@@ -6,7 +6,8 @@
 </head>
 <body>
   <div id="demo">
-    <calendar :date.sync="dateString" format="YYYY/MM/DD"></calendar>
+    <button @click="toggle">toggle</button>
+    <calendar :date.sync="dateString" format="YYYY/MM/DD" v-if="enable"></calendar>
   </div>
   <script src="dist/index.js" charset="utf-8"></script>
 </body>

@@ -7,8 +7,14 @@ Vue.config.debug = true
 new Vue({
   el: '#demo',
   data: () => ({
+    enable: false,
     dateString: moment().format('YYYY/MM/DD')
   }),
+  methods: {
+    toggle() {
+      this.enable = !this.enable
+    }
+  },
   components: {
     calendar
   }
