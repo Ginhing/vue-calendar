@@ -542,7 +542,7 @@
 	    window.addEventListener('click', this.blur);
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    window.removeEventLister('click', this.blur);
+	    window.removeEventListener('click', this.blur);
 	  },
 	
 	  events: {

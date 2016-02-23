@@ -1,6 +1,6 @@
 {
   "name": "vue-calendar",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A style-uninstallable datepicker component for Vue.js",
   "repository": {
     "type": "git",
