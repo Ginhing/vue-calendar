@@ -25,6 +25,7 @@
     "babel-preset-stage-2": "^6.3.13",
     "babel-runtime": "^5",
     "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.16.0",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
     "moment": "^2.11.2",
@@ -40,7 +41,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && webpack --config webpack/base.js",
-    "dev": "webpack-dev-server --config webpack/dev.js --inline --hot "
+    "example": "webpack --config webpack/dev.js",
+    "dev": "webpack-dev-server --config webpack/dev.js --inline --hot"
   },
   "keywords": [
     "calendar",
