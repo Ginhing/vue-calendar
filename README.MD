@@ -2,7 +2,7 @@
 
 > A style-uninstallable datepicker component for Vue.js
 
-![Demo Image](pic.png)
+[![Demo Image](pic.png)](https://hurt-queen.surge.sh)
 
 ## Requirement
 
